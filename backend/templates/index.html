@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batu Kertas Gunting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎯 Batu Kertas Gunting</h1>
+        
+        <!-- Score Board -->
+        <div class="score-board">
+            <div class="score-item">
+                <h3>Pemain</h3>
+                <div class="score" id="player-score">0</div>
+            </div>
+            <div class="score-item">
+                <h3>Total Game</h3>
+                <div class="score" id="total-games">0</div>
+            </div>
+            <div class="score-item">
+                <h3>AI</h3>
+                <div class="score" id="ai-score">0</div>
+            </div>
+        </div>
+
+        <!-- Difficulty Selection -->
+        <div class="difficulty-section">
+            <label for="difficulty">Tingkat Kesulitan:</label>
+            <select id="difficulty">
+                <option value="easy">Mudah</option>
+                <option value="normal" selected>Normal</option>
+                <option value="hard">Sulit</option>
+            </select>
+        </div>
+
+        <!-- Game Status -->
+        <div class="game-status">
+            <div id="connection-status">Menghubungkan...</div>
+            <div id="game-result"></div>
+        </div>
+
+        <!-- Game Choices -->
+        <div class="game-choices">
+            <button class="choice-btn" data-choice="Batu">
+                <span class="choice-icon">🪨</span>
+                <span class="choice-text">Batu</span>
+            </button>
+            <button class="choice-btn" data-choice="Kertas">
+                <span class="choice-icon">📄</span>
+                <span class="choice-text">Kertas</span>
+            </button>
+            <button class="choice-btn" data-choice="Gunting">
+                <span class="choice-icon">✂️</span>
+                <span class="choice-text">Gunting</span>
+            </button>
+        </div>
+
+        <!-- Last Round Display -->
+        <div class="last-round" id="last-round" style="display: none;">
+            <h3>Ronde Terakhir:</h3>
+            <div class="round-display">
+                <div class="player-choice">
+                    <span>Anda: </span>
+                    <span id="last-player-choice"></span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="ai-choice">
+                    <span>AI: </span>
+                    <span id="last-ai-choice"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="control-buttons">
+            <button id="reset-btn" class="control-btn">Reset Game</button>
+            <button id="stats-btn" class="control-btn">Lihat Statistik</button>
+        </div>
+
+        <!-- Stats Modal -->
+        <div id="stats-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Statistik Game</h2>
+                <div id="stats-content">
+                    <!-- Stats will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
