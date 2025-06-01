@@ -43,7 +43,16 @@ function updateScoreBoard() {
     elements.totalGames.textContent = gameState.totalGames;
 }
 
-
+function showGameResult(result) {
+    const messages = {
+        'win': '🎉 Anda Menang!',
+        'lose': '😢 AI Menang!',
+        'draw': '🤝 Seri!'
+    };
+    
+    elements.gameResult.textContent = messages[result] || '';
+    elements.gameResult.className = result;
+}
     // Hide result after 3 seconds
     setTimeout(() => {
         elements.gameResult.textContent = '';
